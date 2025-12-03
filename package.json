@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.17",
+    "@tailwindcss/vite": "^4.1.17"
+  },
+  "name": "ai-summariser",
+  "version": "1.0.0",
+  "main": "background.js",
+  "devDependencies": {
+    "tailwindcss": "^4.1.17"
+  },
+  "scripts": {
+    "build:css": "npx tailwindcss -i ./tailwind.css -o ./utilities.css --content \"./**/*.{html,js}\" --minify",
+    "watch:css": "npx tailwindcss -i ./tailwind.css -o ./utilities.css --content \"./**/*.{html,js}\" --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

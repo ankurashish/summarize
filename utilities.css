@@ -1,0 +1,7 @@
+/*! tailwindcss v4.1.17 | MIT License | https://tailwindcss.com */
+.w-full {
+  width: 100%;
+}
+.overflow-auto {
+  overflow: auto;
+}
