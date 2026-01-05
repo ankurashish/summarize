@@ -1,13 +1,15 @@
 {
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.17",
+    "@tailwindcss/cli": "^4.1.18",
     "@tailwindcss/vite": "^4.1.17"
   },
   "name": "ai-summariser",
   "version": "1.0.0",
   "main": "background.js",
   "devDependencies": {
-    "tailwindcss": "^4.1.17"
+    "autoprefixer": "^10.4.23",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18"
   },
   "scripts": {
     "build:css": "npx tailwindcss -i ./tailwind.css -o ./utilities.css --content \"./**/*.{html,js}\" --minify",
