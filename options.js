@@ -1,27 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("OPTIONS JS LOADED");
-
   const input = document.getElementById("apiKey");
   const saveBtn = document.getElementById("savebtn");
-  const successMsg = document.getElementById("successmsg");
+  const success = document.getElementById("successmsg");
 
-  if (!input || !saveBtn) {
-    console.error("Elements not found", { input, saveBtn });
-    return;
-  }
+  chrome.storage.sync.get(["geminiApiKey"], (res) => {
+    if (res.geminiApiKey) input.value = res.geminiApiKey;
+  });
 
   saveBtn.addEventListener("click", () => {
-    const apiKey = input.value.trim();
-    console.log("CLICKED, value =", apiKey);
+    const key = input.value.trim();
+    if (!key) return alert("API key empty");
 
-    if (!apiKey) {
-      alert("API key is empty");
-      return;
-    }
-
-    chrome.storage.local.set({ geminiApiKey: apiKey }, () => {
-      successMsg.classList.remove("hidden");
-      console.log("KEY SAVED");
+    chrome.storage.sync.set({ geminiApiKey: key }, () => {
+      success.classList.remove("hidden");
+      setTimeout(() => success.classList.add("hidden"), 1500);
     });
   });
 });

@@ -1,6 +1,9 @@
 module.exports = {
   content: [
-    './**/*.{html,js}'
+    "./popup.html",
+    "./options.html",
+    "./popup.js",
+    "./options.js"
   ],
   theme: {
     extend: {},

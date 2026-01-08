@@ -1,41 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Summarize</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="p-4 bg-slate-900 text-white popup">
-        <div class="max-w-md w-full">
-            <h2 class="text-xl font-semibold">Summarize</h2>
 
-            <div class="mt-3">
-                <label for="summary-type" class="text-sm text-slate-300">Summary type</label>
-                <!-- add Tailwind classes to include bg/text utilities during build -->
-                <select id="summaryType" class="mt-1 w-full input bg-black text-white" aria-label="Summary type">
-                    <option value="short">Short</option>
-                    <option value="detailed">Detailed</option>
-                    <option value="bullet">Bullets</option>
-                </select>
-            </div>
+    <!-- Tailwind -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="stylesheet" href="output.css" />
+    <style>
+      html,
+      body {
+        width: 600px;
+        min-width: 600px;
+        height: auto;
+        margin: 0;
+      }
+    </style>
+  </head>
 
-            <button id="summarize" class="mt-4 w-full btn btn-primary">Summarize</button>
-            <button id="copy-btn" class="mt-2 w-full btn btn-ghost bg-cyan-400 text-black">Copy</button>
+  <body class="p-4 bg-slate-900 text-white w-[560px] min-h-[500px]">
+    <div class="space-y-3">
+      <h2 class="text-xl font-semibold">Summarize</h2>
 
-            <pre id="result" class="mt-3 bg-black/20 p-3 rounded max-h-60 overflow-auto text-sm font-mono">Select a type and click Summarize...</pre>
-        
-            <!-- Inline fallback CSS for native select dropdowns (some browsers ignore styling options) -->
-            <style>
-                /* Try to style native option dropdown where supported */
-                #summary-type, #summary-type option {
-                    background: #000 !important;
-                    color: #fff !important;
-                }
-                /* Ensure select arrow and appearance remain usable */
-                #summary-type { -webkit-appearance: menulist; appearance: menulist; }
-            </style>
-        </div>
+      <div>
+        <label for="summaryType" class="text-sm text-slate-300"
+          >Summary type</label
+        >
+        <select
+          id="summaryType"
+          class="mt-1 w-full bg-black text-white p-2 rounded"
+        >
+          <option value="short">Short</option>
+          <option value="detailed">Detailed</option>
+          <option value="bullet">Bullets</option>
+        </select>
+      </div>
+
+      <button
+        id="summarize"
+        class="w-full bg-cyan-500 hover:bg-cyan-400 text-white p-2 rounded"
+      >
+        Summarize
+      </button>
+
+      <button id="copy-btn" class="w-full bg-cyan-300 text-white p-2 rounded">
+        Copy
+      </button>
+
+      <div
+        id="result"
+        class="bg-black/30 p-3 rounded text-sm whitespace-normal break-words overflow-y-auto overflow-x-hidden max-h-[400px] leading-relaxed"
+      >
+        Select a type and click Summarize...
+      </div>
+    </div>
+
     <script src="popup.js"></script>
-</body>
+  </body>
 </html>
